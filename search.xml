@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>如何搭建属于一个自己的hexo博客</title>
+    <url>/2020/01/11/%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<html><head></head><body><h2 id="如何搭建属于一个自己的hexo博客"><a href="#如何搭建属于一个自己的hexo博客" class="headerlink" title="如何搭建属于一个自己的hexo博客"></a>如何搭建属于一个自己的hexo博客</h2><ol>
+<li><p>安装Git</p>
+</li>
+<li><p>安装Node.js</p>
+</li>
+<li><p>安装Hexo</p>
+<p> 安装hexo命令： npm i -g hexo</p>
+<p> 查看hexo版本：hexo -v</p>
+<p> 初始化命令：hexo init</p>
+<p><a href="https://i.loli.net/2020/01/22/f2yJpxZok4zYabI.png" data-fancybox="group" data-caption="explain.jpg" class="fancybox"><img alt="explain.jpg" title="explain.jpg" data-src="https://i.loli.net/2020/01/22/f2yJpxZok4zYabI.png" src="/img/loading.gif" class="lazyload"></a></p>
+</li>
+<li><p>GitHub创建个人仓库</p>
+</li>
+<li><p>将hexok部署到Github</p>
+<p>（如果有自己的域名可以执行下一步，没有则跳过执行下一个）</p>
+</li>
+<li><p>设置个人域名  (如下图)</p>
+<p><a href="https://i.loli.net/2020/01/22/Qp8ksun3GgzdFLo.png" data-fancybox="group" data-caption="save.png" class="fancybox"><img alt="save.png" title="save.png" data-src="https://i.loli.net/2020/01/22/Qp8ksun3GgzdFLo.png" src="/img/loading.gif" class="lazyload"></a></p>
+</li>
+<li><p>发布文章</p>
+</li>
+</ol>
+<hr>
+<p><strong>有想法的小伙伴可以进入<a href="https://github.com/ClodSleep666/" target="_blank" rel="noopener">我的Github</a>查看源码</strong></p>
+<p>** 在哪里跌倒，就在哪里趴下，休息一会儿你会发现新大陆的哦~ **</p>
+</body></html>]]></content>
+      <categories>
+        <category>文章</category>
+      </categories>
+      <tags>
+        <tag>picture</tag>
+        <tag>video</tag>
+      </tags>
+  </entry>
+</search>
