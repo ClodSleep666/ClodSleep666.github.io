@@ -1,32 +1,232 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>如何搭建属于一个自己的hexo博客</title>
-      <link href="/2020/01/11/1010710/"/>
-      <url>/2020/01/11/1010710/</url>
-      
-        <content type="html"><![CDATA[<html><head></head><body><h2 id="如何搭建属于一个自己的hexo博客"><a href="#如何搭建属于一个自己的hexo博客" class="headerlink" title="如何搭建属于一个自己的hexo博客"></a>如何搭建属于一个自己的hexo博客</h2><ol><li><p>安装Git</p></li><li><p>安装Node.js</p></li><li><p>安装Hexo</p><p> 安装hexo命令： npm i -g hexo</p><p> 查看hexo版本：hexo -v</p><p> 初始化命令：hexo init</p><p><a href="https://i.loli.net/2020/01/22/f2yJpxZok4zYabI.png" data-fancybox="group" data-caption="explain.jpg" class="fancybox"><img alt="explain.jpg" title="explain.jpg" data-src="https://i.loli.net/2020/01/22/f2yJpxZok4zYabI.png" src="/img/loading.gif" class="lazyload"></a></p></li><li><p>GitHub创建个人仓库</p></li><li><p>将hexok部署到Github</p><p>（如果有自己的域名可以执行下一步，没有则跳过执行下一个）</p></li><li><p>设置个人域名  (如下图)</p><p><a href="https://i.loli.net/2020/01/22/Qp8ksun3GgzdFLo.png" data-fancybox="group" data-caption="save.png" class="fancybox"><img alt="save.png" title="save.png" data-src="https://i.loli.net/2020/01/22/Qp8ksun3GgzdFLo.png" src="/img/loading.gif" class="lazyload"></a></p></li><li><p>发布文章</p></li></ol><hr><p><strong>有想法的小伙伴可以进入<a href="https://github.com/ClodSleep666/" target="_blank" rel="noopener">我的Github</a>查看源码</strong></p><p>** 在哪里跌倒，就在哪里趴下，休息一会儿你会发现新大陆的哦~ **</p></body></html>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>Hibernate 的一些简单总结及SSH整合</title>
+    <url>/2020/04/27/1010711/</url>
+    <content><![CDATA[<html><head></head><body><h2 id="Hibernate-的一些简单总结及SSH整合"><a href="#Hibernate-的一些简单总结及SSH整合" class="headerlink" title="Hibernate 的一些简单总结及SSH整合"></a>Hibernate 的一些简单总结及SSH整合</h2><ol>
+<li><h3 id="Hibernate-的简述："><a href="#Hibernate-的简述：" class="headerlink" title="Hibernate 的简述："></a><code>Hibernate 的简述：</code></h3><ul>
+<li><p>Hibernate是一个持久化框架。</p>
+</li>
+<li><p>Hibernate是一个ORM（Object Relational Mapping 对象关系映射）框架，它是一个面向Java环境的对象/关系    数据库映射工具。完全采用普通的Java对象而不必继承Hibernate中的某个超类或者实现某个接口。</p>
+</li>
+<li><p>是一个开源的轻量级（就是不需要依赖其他就可以运行）框架 ， 不在写复杂的SQL语句，只需要在配置文件中配置即可。 </p>
+</li>
+<li><p>Hibernate是面向对象的程序设计语言和关系数据库之间的桥梁，真正实现了采用面向对象的方式操作关系型数据库。  就是实体类和数据库的表一一对应（所以不需要操作数据库表，而是操作实体类对象即可） </p>
+</li>
+<li><p>hibernate运行原理</p>
+<p><a href="https://i.loli.net/2020/04/27/ybMNFsICdgOnqQP.jpg" data-fancybox="group" data-caption="运行原理" class="fancybox"><img alt="运行原理" title="运行原理" data-src="https://i.loli.net/2020/04/27/ybMNFsICdgOnqQP.jpg" src="/img/loading.gif" class="lazyload"></a></p>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li><h3 id="Hibernate优势"><a href="#Hibernate优势" class="headerlink" title="Hibernate优势"></a><code>Hibernate优势</code></h3><ul>
+<li>Hibernate会处理映射的Java类来使用XML文件，数据库表和无需编写任何一行代码。</li>
+<li>尽量减少与智能读取策略数据库的访问。</li>
+<li>提供了简单的API，用于直接从数据库中存储和检索Java对象。</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>提供数据的简单查询。</li>
+</ul>
+<ol start="3">
+<li><h3 id="Hibernate-的使用"><a href="#Hibernate-的使用" class="headerlink" title="Hibernate 的使用"></a><code>Hibernate 的使用</code></h3><ol>
+<li>下载并部署jar包</li>
+</ol>
+<ul>
+<li>下载hibernate-release-4.3.11.Final<ul>
+<li>maven项目导入依赖</li>
+</ul>
+</li>
+</ul>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang"></div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line"><dependency></dependency></span><br><span class="line">       <groupid>org.hibernate</groupid></span><br><span class="line">       <artifactid>hibernate-core</artifactid></span><br><span class="line">       <version>3.6.10.Final</version></span><br><span class="line">   </span><br></pre></td></tr></tbody></table></figure></div>
+
+<hr>
+<ol start="2">
+<li><p>配置Hibernate</p>
+<ul>
+<li><p>配置文件名为<code>hibernate.cfg.xm(如果和spring ，springmvc整合的话配置在application中)</code></p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">xml</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta"><!--?xml version="1.0" encoding="UTF-8"?--></span></span><br><span class="line"> <span class="meta">hibernate-configuration</span> <span class="meta-keyword">PUBLIC</span>  </span><br><span class="line"><span class="meta">     <span class="meta-string">"-//Hibernate/Hibernate Configuration DTD 3.0//EN"</span>  </span></span><br><span class="line"><span class="meta">     <span class="meta-string">"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd"</span>></span></span><br><span class="line"> <span class="tag"><<span class="name">hibernate-configuration</span>></span></span><br><span class="line"> 	<span class="tag"><<span class="name">session-factory</span>></span></span><br><span class="line"> 		<span class="comment"><!-- 配置数据库连接信息 --></span></span><br><span class="line"> 		<span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"connection.driver_class"</span>></span>com.mysql.jdbc.Driver<span class="tag"><!--<span class="name"-->property</span>></span><br><span class="line"> 		<span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"connection.url"</span>></span>jdbc:mysql://192.168.1.15:3306/test<span class="tag"><!--<span class="name"-->property</span>></span><br><span class="line"> 		<span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"connection.username"</span>></span>znsd_test<span class="tag"><!--<span class="name"-->property</span>></span><br><span class="line"> 		<span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"connection.password"</span>></span>123456<span class="tag"><!--<span class="name"-->property</span>></span><br><span class="line"> 		<span class="comment"><!-- 数据库方言 --></span></span><br><span class="line"> 		<span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dialect"</span>></span>org.hibernate.dialect.MySQL5InnoDBDialect<span class="tag"><!--<span class="name"-->property</span>></span><br><span class="line"> 		<span class="comment"><!-- 在控制台输出sql语句 --></span></span><br><span class="line"> 		<span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"show_sql"</span>></span>true<span class="tag"><!--<span class="name"-->property</span>></span><br><span class="line"> 		<span class="comment"><!-- 格式化sql语句 --></span></span><br><span class="line"> 		<span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"format_sql"</span>></span>true<span class="tag"><!--<span class="name"-->property</span>></span><br><span class="line"> 		<span class="comment"><!-- 数据库生成策略 --></span></span><br><span class="line"> 		<span class="comment"><!-- 数据库方言：指数据库按照那种数据库语法规则生成。 hibernate.hbm2ddl.auto：数据库生成策略 #hibernate.hbm2ddl.auto </span></span><br><span class="line"><span class="comment"> 			create-drop：系统启东时先创建数据库，系统退出时删除数据库 #hibernate.hbm2ddl.auto create：系统启动时先删除原有数据库，再创建新的数据库 </span></span><br><span class="line"><span class="comment"> 			#hibernate.hbm2ddl.auto update：首先检测数据库是否存在，不存在则创建数据库，存在执行操作。 #hibernate.hbm2ddl.auto </span></span><br><span class="line"><span class="comment"> 			validate：验证表结构，不会创建表 --></span></span><br><span class="line"> 		<span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.hbm2ddl.auto"</span>></span>update<span class="tag"><!--<span class="name"-->property</span>></span><br><span class="line"> 		<span class="comment"><!-- 配置映射文件 --></span></span><br><span class="line"> 		<span class="comment"><!--注意配置文件名必须包含其相对于classpath 的全路径--></span></span><br><span class="line"> 		<span class="tag"><<span class="name">mapping</span> <span class="attr">resource</span>=<span class="string">"com/znsd/hibernate/bean/Student.hbm.xml"</span> /></span></span><br><span class="line"> 	<span class="tag"><!--<span class="name"-->session-factory</span>></span><br><span class="line"> <span class="tag"><!--<span class="name"-->hibernate-configuration</span>></span><br></pre></td></tr></tbody></table></figure></div>
+
+<blockquote>
+<p> hibernate.hbm2ddl.auto 配置</p>
+<ul>
+<li>create-drop：系统启东时先创建数据库，系统退出时删除数据库</li>
+<li>create：系统启动时先删除原有数据库，再创建新的数据库</li>
+<li>update：首先检测数据库是否存在，不存在则创建数据库，存在执行操作。</li>
+<li>validate：验证表结构，不会创建表</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code>* 创建持久化类和映射文件（*.hbm.xml）(如果和spring ，springmvc整合的话*.hbm.xml不需要配置)
+
+  **创建持久化类**
+
+  <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.persistence.Entity;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.Id;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.Table;</span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name=<span class="string">"stu"</span>)  <span class="comment">//对应数据库表名   久化类建议实现Serializable接口,不能使用finnal修饰</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudentInfo</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>{</span><br><span class="line">    <span class="meta">@Id</span> <span class="comment">//主键</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> studentId;  <span class="comment">// 学生id</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> classId; <span class="comment">// 班级号</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String sex;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">private</span> String classNa;</span><br></pre></td></tr></tbody></table></figure></div>
+
+  **配置映射文件**（*.hbm.xml）
+
+  <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">xml</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta"><!--?xml version="1.0" encoding="UTF-8"?--></span></span><br><span class="line"><span class="meta">hibernate-mapping</span> <span class="meta-keyword">PUBLIC</span></span><br><span class="line"><span class="meta">        <span class="meta-string">"-//Hibernate/Hibernate Mapping DTD 3.0//EN"</span></span></span><br><span class="line"><span class="meta">        <span class="meta-string">"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"</span>></span></span><br><span class="line"><span class="tag"><<span class="name">hibernate-mapping</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">class</span> <span class="attr">name</span>=<span class="string">"com.znsd.info.StudentInfo"</span> <span class="attr">table</span>=<span class="string">"stu"</span>></span></span><br><span class="line">        <span class="tag"><<span class="name">id</span> <span class="attr">name</span>=<span class="string">"studentId"</span> <span class="attr">column</span>=<span class="string">"studentId"</span>></span></span><br><span class="line">            <span class="tag"><<span class="name">generator</span> <span class="attr">class</span>=<span class="string">"assigned"</span>/></span></span><br><span class="line">        <span class="tag"><!--<span class="name"-->id</span>></span><br><span class="line">        <span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"classId"</span>/></span></span><br><span class="line">        <span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span>/></span></span><br><span class="line">        <span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sex"</span>/></span></span><br><span class="line">        <span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"age"</span> /></span></span><br><span class="line"><span class="comment"><!--<property name="age" column="age"></property>  如果表的属性名和类属性名一样可以省column--></span></span><br><span class="line">        <span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"classNa"</span>/></span></span><br><span class="line">    <span class="tag"><!--<span class="name"-->class</span>></span><br><span class="line"><span class="tag"><!--<span class="name"-->hibernate-mapping</span>></span><br></pre></td></tr></tbody></table></figure></div></code></pre><ol start="4">
+<li><h3 id="Hibernate-API"><a href="#Hibernate-API" class="headerlink" title="Hibernate API"></a><code>Hibernate API</code></h3><ul>
+<li><p>Configuration类：Configuration类负责管理Hibernate的配置信息并根据配置信息启动Hibernate。</p>
+</li>
+<li><p>SessionFactory接口</p>
+<ul>
+<li><p>SessionFactory实例对应一个数据存储源。</p>
+</li>
+<li><p>SessionFactory的特点：</p>
+</li>
+<li><p>线程安全：一个SessionFactory被多个线程所共享。</p>
+</li>
+<li><p>重量级的：SessionFactory会缓存SQL语句，映射数据等，所以一个应用程序，如果只访问一个数据库，只需建立一个SessionFactory对象即可。</p>
+</li>
+<li><pre><code class="java"><span class="comment">//创建SessionFactory对象</span>
+<span class="comment">//hibernate3.0版本所使用的方法</span>
+<span class="comment">//SessionFactory factory = cfg.buildSessionFactory();</span>
+
+<span class="comment">//hibernate4.0以上的版本才使用的方法</span>
+ServiceRegistry sr = <span class="keyword">new</span> StandardServiceRegistryBuilder().applySettings(cfg.getProperties()).build();
+SessionFactory factory = cfg.buildSessionFactory(sr);
+<!--￼<span class="number">4</span>--></code></pre>
+</li>
+</ul>
+</li>
+<li><p>Transaction 接口</p>
+<p>Transaction接口是Hibernate中的事务接口。在Hibernate进行持久化操作时，必须进行事务控制。</p>
+</li>
+<li><p>Query和Criteria接口</p>
+<ul>
+<li><p>Query和Criteria接口都是Hibernate中的查询接口。</p>
+</li>
+<li><p>Query接口：包装了一个HQL（Hibernate Query Language）查询语句。</p>
+</li>
+<li><p>Criteria接口：擅长执行动态查询。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h3 id="get-和-load-重点"><a href="#get-和-load-重点" class="headerlink" title="get 和 load  重点"></a><code>get 和 load  重点</code></h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说      明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Object get(Class clazz, Serializable id)</td>
+<td>若数据不存在，返回NULL对象</td>
+</tr>
+<tr>
+<td>Object load(Class theClass, Serializable id)</td>
+<td>若数据不存在，系统就会抛出异常</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<ul>
+<li><p>get和load都是用来根据id来获取单条记录。</p>
+</li>
+<li><p>区别：</p>
+<ul>
+<li>get是立即加载，load是延迟加载。</li>
+<li>get返回实体对象，load返回代理对象。</li>
+<li>get返回实体对象如果没有该记录，会返回null。load如果没有该记录，会抛出异常。</li>
+<li>get返回只能使用一级缓存，load可以使用一级和二级缓存。</li>
+<li>都是通过id获取对象，如果load只获取id则不执行查询语句。</li>
+</ul>
+</li>
+<li><p><code>由于load方式使用时，采用延迟加载机制，性能更高，所以一般情况下推荐使用load方式。</code></p>
+</li>
+</ul>
+<ol start="6">
+<li><h3 id="Hibernate中Java对象的三种状态"><a href="#Hibernate中Java对象的三种状态" class="headerlink" title="Hibernate中Java对象的三种状态"></a><code>Hibernate中Java对象的三种状态</code></h3><ul>
+<li><ol>
+<li>瞬时状态(Transient)：不曾进行过持久化，未与 session关联，不使用后会被垃圾回收。</li>
+<li>持久状态(Persistent)：当前仅与一个session关联。处于持久状态的对象在session关闭时，会将数据同步到数据库。</li>
+<li>游离状态(Detached)：也称脱管状态，已经进行过持久化，但当前未与session对象关联。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><h3 id="Spring-SpringMVC-Hibernate-整合"><a href="#Spring-SpringMVC-Hibernate-整合" class="headerlink" title="Spring + SpringMVC + Hibernate  整合"></a><code>Spring + SpringMVC + Hibernate  整合</code></h3><ul>
+<li><ol>
+<li><p>applicationContent.xml 配置</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">xml</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta"><!--?xml version="1.0" encoding="UTF-8"?--></span></span><br><span class="line"><span class="tag"><<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:aop</span>=<span class="string">"http://www.springframework.org/schema/aop"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:tx</span>=<span class="string">"http://www.springframework.org/schema/tx"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">    http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">    http://www.springframework.org/schema/context</span></span></span><br><span class="line"><span class="tag"><span class="string">    http://www.springframework.org/schema/context/spring-context.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">    http://www.springframework.org/schema/aop</span></span></span><br><span class="line"><span class="tag"><span class="string">    http://www.springframework.org/schema/aop/spring-aop.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">    http://www.springframework.org/schema/tx</span></span></span><br><span class="line"><span class="tag"><span class="string">    http://www.springframework.org/schema/tx/spring-tx.xsd"</span>></span></span><br><span class="line"></span><br><span class="line">    <span class="comment"><!--在扫描时排除Controller--></span></span><br><span class="line">    <span class="tag"><<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.znsd.service"</span> /></span></span><br><span class="line">    <span class="tag"><<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.znsd.dao"</span> /></span></span><br><span class="line">    <span class="tag"><<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.znsd.controller"</span>></span></span><br><span class="line">        <span class="tag"><<span class="name">context:exclude-filter</span> <span class="attr">type</span>=<span class="string">"annotation"</span> <span class="attr">expression</span>=<span class="string">"org.springframework.stereotype.Controller"</span>/></span></span><br><span class="line">    <span class="tag"><!--<span class="name"-->context:component-scan</span>></span><br><span class="line">    <span class="comment"><!--引入数据库连接池--></span></span><br><span class="line">    <span class="tag"><<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSource"</span> <span class="attr">class</span>=<span class="string">"org.springframework.jdbc.datasource.DriverManagerDataSource"</span>></span></span><br><span class="line">        <span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClassName"</span> <span class="attr">value</span>=<span class="string">"com.mysql.jdbc.Driver"</span>/></span></span><br><span class="line">        <span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span> <span class="attr">value</span>=<span class="string">"jdbc:mysql://localhost:3306/studentm"</span>/></span></span><br><span class="line">        <span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"root"</span>/></span></span><br><span class="line">        <span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"root"</span>/></span></span><br><span class="line">    <span class="tag"><!--<span class="name"-->bean</span>></span><br><span class="line"></span><br><span class="line">    <span class="comment"><!-- 配置SessionFactory --></span></span><br><span class="line">    <span class="tag"><<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sessionFactory"</span> <span class="attr">class</span>=<span class="string">"org.springframework.orm.hibernate4.LocalSessionFactoryBean"</span>></span></span><br><span class="line">        <span class="comment"><!-- 注入连接池 --></span></span><br><span class="line">        <span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span>/></span></span><br><span class="line">        <span class="comment"><!-- 配置Hibernate的相关属性 --></span></span><br><span class="line">        <span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernateProperties"</span>></span></span><br><span class="line">            <span class="tag"><<span class="name">props</span>></span></span><br><span class="line">                <span class="comment"><!--指定数据库方言--></span></span><br><span class="line">                <span class="tag"><<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"hibernate.dialect"</span>></span>org.hibernate.dialect.MySQLDialect<span class="tag"><!--<span class="name"-->prop</span>></span><br><span class="line">                <span class="comment"><!--在控制台显示执行的数据库操作语句--></span></span><br><span class="line">                <span class="tag"><<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"hibernate.show_sql"</span>></span>true<span class="tag"><!--<span class="name"-->prop</span>></span><br><span class="line">                <span class="tag"><<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"hibernate.format_sql"</span>></span>true<span class="tag"><!--<span class="name"-->prop</span>></span><br><span class="line">                <span class="tag"><<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"hibernate.hbm2ddl.auto"</span>></span>update<span class="tag"><!--<span class="name"-->prop</span>></span><br><span class="line">            <span class="tag"><!--<span class="name"-->props</span>></span><br><span class="line">        <span class="tag"><!--<span class="name"-->property</span>></span><br><span class="line">        <span class="comment"><!--配置实体类与数据库表关系--></span></span><br><span class="line">        <span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"packagesToScan"</span> <span class="attr">value</span>=<span class="string">"com.znsd.info"</span>/></span></span><br><span class="line">        <span class="comment"><!--<property name="hibernate.current_session_context_class" value="">jta</property>--></span></span><br><span class="line">    <span class="tag"><!--<span class="name"-->bean</span>></span><br><span class="line"></span><br><span class="line">    <span class="comment"><!-- 事物管理器配置  --></span></span><br><span class="line">    <span class="tag"><<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"transactionManager"</span> <span class="attr">class</span>=<span class="string">"org.springframework.orm.hibernate4.HibernateTransactionManager"</span>></span></span><br><span class="line">        <span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionFactory"</span> <span class="attr">ref</span>=<span class="string">"sessionFactory"</span> /></span></span><br><span class="line">    <span class="tag"><!--<span class="name"-->bean</span>></span><br><span class="line">    <span class="tag"><<span class="name">tx:annotation-driven</span> <span class="attr">transaction-manager</span>=<span class="string">"transactionManager"</span> /></span></span><br><span class="line"></span><br><span class="line">    <span class="tag"><<span class="name">context:annotation-config</span>/></span></span><br><span class="line">    <span class="tag"><<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"jdbcTemplate"</span> <span class="attr">class</span>=<span class="string">"org.springframework.jdbc.core.JdbcTemplate"</span>></span></span><br><span class="line">        <span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span>/></span></span><br><span class="line">    <span class="tag"><!--<span class="name"-->bean</span>></span><br><span class="line"><span class="tag"><!--<span class="name"-->beans</span>></span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>2. springMVC.xml  配置
+
+   <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">xml</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta"><!--?xml version="1.0" encoding="UTF-8"?--></span></span><br><span class="line"><span class="tag"><<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns:mvc</span>=<span class="string">"http://www.springframework.org/schema/mvc"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:aop</span>=<span class="string">"http://www.springframework.org/schema/aop"</span> <span class="attr">xmlns:tx</span>=<span class="string">"http://www.springframework.org/schema/tx"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/mvc</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/context</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/context/spring-context-3.2.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/aop</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/aop/spring-aop-3.2.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/tx</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/tx/spring-tx-3.2.xsd "</span>></span></span><br><span class="line"></span><br><span class="line">    <span class="tag"><<span class="name">mvc:annotation-driven</span>/></span></span><br><span class="line">    <span class="comment"><!--扫描controller层在spring中不在扫描--></span></span><br><span class="line">    <span class="tag"><<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.znsd.controller"</span>/></span></span><br><span class="line"></span><br><span class="line">    <span class="tag"><<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span>></span></span><br><span class="line">        <span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"prefix"</span> <span class="attr">value</span>=<span class="string">""</span>/></span></span><br><span class="line">        <span class="tag"><<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suffix"</span> <span class="attr">value</span>=<span class="string">".jsp"</span>/></span></span><br><span class="line">    <span class="tag"><!--<span class="name"-->bean</span>></span><br><span class="line"></span><br><span class="line">    <span class="comment"><!--配置静态资源路径--></span></span><br><span class="line">    <span class="tag"><<span class="name">mvc:resources</span> <span class="attr">mapping</span>=<span class="string">"/statics/**"</span> <span class="attr">location</span>=<span class="string">"/js/"</span>/></span></span><br><span class="line"><span class="tag"><!--<span class="name"-->beans</span>></span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+3. web.xml 配置
+
+   <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">xml</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta"><!--?xml version="1.0" encoding="UTF-8"?--></span></span><br><span class="line"><span class="tag"><<span class="name">web-app</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns</span>=<span class="string">"http://java.sun.com/xml/ns/javaee"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"</span> <span class="attr">version</span>=<span class="string">"3.0"</span>></span></span><br><span class="line"></span><br><span class="line">  <span class="tag"><<span class="name">display-name</span>></span>Archetype Created Web Application<span class="tag"><!--<span class="name"-->display-name</span>></span><br><span class="line">  <span class="comment"><!--配置spring核心监听器加载applicationContext.xml--></span></span><br><span class="line">  <span class="tag"><<span class="name">listener</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">listener-class</span>></span>org.springframework.web.context.ContextLoaderListener<span class="tag"><!--<span class="name"-->listener-class</span>></span><br><span class="line">  <span class="tag"><!--<span class="name"-->listener</span>></span><br><span class="line">  <span class="tag"><<span class="name">context-param</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">param-name</span>></span>contextConfigLocation<span class="tag"><!--<span class="name"-->param-name</span>></span><br><span class="line">    <span class="tag"><<span class="name">param-value</span>></span>classpath:applicationContext.xml<span class="tag"><!--<span class="name"-->param-value</span>></span><br><span class="line">  <span class="tag"><!--<span class="name"-->context-param</span>></span><br><span class="line"></span><br><span class="line">  <span class="comment"><!--配置springmvc--></span></span><br><span class="line">  <span class="tag"><<span class="name">servlet</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">servlet-name</span>></span>dispatcherServlet<span class="tag"><!--<span class="name"-->servlet-name</span>></span><br><span class="line">    <span class="tag"><<span class="name">servlet-class</span>></span>org.springframework.web.servlet.DispatcherServlet<span class="tag"><!--<span class="name"-->servlet-class</span>></span><br><span class="line">    <span class="tag"><<span class="name">init-param</span>></span></span><br><span class="line">      <span class="tag"><<span class="name">param-name</span>></span>contextConfigLocation<span class="tag"><!--<span class="name"-->param-name</span>></span><br><span class="line">      <span class="tag"><<span class="name">param-value</span>></span>classpath:springMVC.xml<span class="tag"><!--<span class="name"-->param-value</span>></span><br><span class="line">    <span class="tag"><!--<span class="name"-->init-param</span>></span><br><span class="line">  <span class="tag"><!--<span class="name"-->servlet</span>></span><br><span class="line">  <span class="tag"><<span class="name">servlet-mapping</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">servlet-name</span>></span>dispatcherServlet<span class="tag"><!--<span class="name"-->servlet-name</span>></span><br><span class="line">    <span class="tag"><<span class="name">url-pattern</span>></span>/<span class="tag"><!--<span class="name"-->url-pattern</span>></span><br><span class="line">  <span class="tag"><!--<span class="name"-->servlet-mapping</span>></span><br><span class="line"></span><br><span class="line">  <span class="comment"><!-- 处理POST提交乱码问题 --></span></span><br><span class="line">    <span class="comment"><!-- 编码Filter 加载配置 Start --></span></span><br><span class="line">    <span class="tag"><<span class="name">filter</span>></span></span><br><span class="line">        <span class="tag"><<span class="name">filter-name</span>></span>SetCharacterEncoding<span class="tag"><!--<span class="name"-->filter-name</span>></span><br><span class="line">        <span class="tag"><<span class="name">filter-class</span>></span>org.springframework.web.filter.CharacterEncodingFilter<span class="tag"><!--<span class="name"-->filter-class</span>></span><br><span class="line">        <span class="tag"><<span class="name">init-param</span>></span></span><br><span class="line">            <span class="tag"><<span class="name">param-name</span>></span>encoding<span class="tag"><!--<span class="name"-->param-name</span>></span><br><span class="line">            <span class="tag"><<span class="name">param-value</span>></span>UTF-8<span class="tag"><!--<span class="name"-->param-value</span>></span><br><span class="line">        <span class="tag"><!--<span class="name"-->init-param</span>></span><br><span class="line">    <span class="tag"><!--<span class="name"-->filter</span>></span><br><span class="line">    <span class="tag"><<span class="name">filter-mapping</span>></span></span><br><span class="line">        <span class="tag"><<span class="name">filter-name</span>></span>SetCharacterEncoding<span class="tag"><!--<span class="name"-->filter-name</span>></span><br><span class="line">        <span class="tag"><<span class="name">url-pattern</span>></span>/*<span class="tag"><!--<span class="name"-->url-pattern</span>></span><br><span class="line">    <span class="tag"><!--<span class="name"-->filter-mapping</span>></span><br><span class="line"><span class="tag"><!--<span class="name"-->web-app</span>></span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+4. UserDaoImp.java 代码
+
+   <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDaoImp</span> <span class="keyword">implements</span> <span class="title">UserDao</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> SessionFactory sessionFactory;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *    获取Session</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Session <span class="title">currentSession</span><span class="params">()</span></span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.sessionFactory.openSession();</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取所有的学生信息</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List<studentinfo> <span class="title">getAllstu</span><span class="params">()</span> </studentinfo></span>{</span><br><span class="line">        List<studentinfo> stuList = <span class="keyword">new</span> ArrayList<studentinfo>();</studentinfo></studentinfo></span><br><span class="line">        stuList = currentSession().createQuery(<span class="string">"from StudentInfo"</span>).list();</span><br><span class="line">        <span class="keyword">return</span> stuList;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div></code></pre><hr>
+<p><strong>有想法的小伙伴可以进入<a href="https://github.com/ClodSleep666/" target="_blank" rel="noopener">我的Github</a>查看源码</strong></p>
+<p>** 在哪里跌倒，就在哪里趴下，休息一会儿你会发现新大陆的哦~ **</p>
+</body></html>]]></content>
       <categories>
-          
-          <category> 文章 </category>
-          
+        <category>文章</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> article </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>article</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搭建属于一个自己的hexo博客</title>
+    <url>/2020/01/11/1010710/</url>
+    <content><![CDATA[<html><head></head><body><h2 id="搭建属于一个自己的hexo博客"><a href="#搭建属于一个自己的hexo博客" class="headerlink" title="搭建属于一个自己的hexo博客"></a>搭建属于一个自己的hexo博客</h2><ol>
+<li><p>安装Git</p>
+</li>
+<li><p>安装Node.js</p>
+</li>
+<li><p>安装Hexo</p>
+<p> 安装hexo命令： npm i -g hexo</p>
+<p> 查看hexo版本：hexo -v</p>
+<p> 初始化命令：hexo init</p>
+<p><a href="https://i.loli.net/2020/01/22/f2yJpxZok4zYabI.png" data-fancybox="group" data-caption="explain.jpg" class="fancybox"><img alt="explain.jpg" title="explain.jpg" data-src="https://i.loli.net/2020/01/22/f2yJpxZok4zYabI.png" src="/img/loading.gif" class="lazyload"></a></p>
+</li>
+<li><p>GitHub创建个人仓库</p>
+</li>
+<li><p>将hexok部署到Github</p>
+<p>（如果有自己的域名可以执行下一步，没有则跳过执行下一个）</p>
+</li>
+<li><p>设置个人域名  (如下图)</p>
+<p><a href="https://i.loli.net/2020/01/22/Qp8ksun3GgzdFLo.png" data-fancybox="group" data-caption="save.png" class="fancybox"><img alt="save.png" title="save.png" data-src="https://i.loli.net/2020/01/22/Qp8ksun3GgzdFLo.png" src="/img/loading.gif" class="lazyload"></a></p>
+</li>
+<li><p>发布文章</p>
+</li>
+</ol>
+<hr>
+<p><strong>有想法的小伙伴可以进入<a href="https://github.com/ClodSleep666/" target="_blank" rel="noopener">我的Github</a>查看源码</strong></p>
+<p>** 在哪里跌倒，就在哪里趴下，休息一会儿你会发现新大陆的哦~ **</p>
+</body></html>]]></content>
+      <categories>
+        <category>文章</category>
+      </categories>
+      <tags>
+        <tag>article</tag>
+      </tags>
+  </entry>
 </search>
