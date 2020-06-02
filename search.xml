@@ -1,6 +1,381 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Linux 的简单介绍及配置</title>
+    <url>/2020/05/27/1010712/</url>
+    <content><![CDATA[<html><head></head><body><h1 id="服务器上Linux-的安装及一些简单配置"><a href="#服务器上Linux-的安装及一些简单配置" class="headerlink" title="服务器上Linux 的安装及一些简单配置"></a>服务器上Linux 的安装及一些简单配置</h1><h2 id="1-Linux简介："><a href="#1-Linux简介：" class="headerlink" title="1. Linux简介："></a>1. Linux简介：</h2><ol>
+<li><p>Linux没有盘符概念，只有目录的概念，存储都是以目录形式进行管理。</p>
+</li>
+<li><p>Linux的特点是开放性（开源）、多用户、多任务、良好的用户界面、优异的性能与稳定性，</p>
+<p>并且于Windows的区别：</p>
+<p><strong>Windows</strong> 属于：单用户、多任务。</p>
+<p>*<em>Linux *</em>  属于：多用户、多任务。</p>
+</li>
+</ol>
+<h2 id="2-服务器的Linux相关配置"><a href="#2-服务器的Linux相关配置" class="headerlink" title="2. 服务器的Linux相关配置"></a>2. 服务器的Linux相关配置</h2><ol>
+<li><p>进入实例界面设置密码来进行ssh远程访问</p>
+</li>
+<li><p>配置安全组</p>
+<p><a href="https://i.loli.net/2020/05/27/2GfnhKcyt14vrOT.png" data-fancybox="group" data-caption="配置安全组.PNG" class="fancybox"><img alt="配置安全组.PNG" title="配置安全组.PNG" data-src="https://i.loli.net/2020/05/27/2GfnhKcyt14vrOT.png" src="/img/loading.gif" class="lazyload"></a></p>
+</li>
+</ol>
+<p><a href="https://i.loli.net/2020/05/27/C8z93YbvSPMa4nf.png" data-fancybox="group" data-caption="配置规则.PNG" class="fancybox"><img alt="配置规则.PNG" title="配置规则.PNG" data-src="https://i.loli.net/2020/05/27/C8z93YbvSPMa4nf.png" src="/img/loading.gif" class="lazyload"></a></p>
+<ol start="3">
+<li><p>配置IP白名单</p>
+<p><a href="https://i.loli.net/2020/05/27/bh8REagkre4QcXU.png" data-fancybox="group" data-caption="白名单.PNG" class="fancybox"><img alt="白名单.PNG" title="白名单.PNG" data-src="https://i.loli.net/2020/05/27/bh8REagkre4QcXU.png" src="/img/loading.gif" class="lazyload"></a></p>
+</li>
+</ol>
+<h2 id="3-Linux的一些简单命令"><a href="#3-Linux的一些简单命令" class="headerlink" title="3. Linux的一些简单命令"></a>3. Linux的一些简单命令</h2><p>   1.登录系统后，在当前命令窗口下输入命令(或者回退到根目录)：</p>
+   <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">ls / 	回到根目录</span><br></pre></td></tr></tbody></table></figure></div>
+<p>​    命令带上–help 可以查看命令所有的参数以及参数描述。</p>
+<ol start="2">
+<li><p>查看CPU位数（30/64）</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">getconf LONG_BIT</span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+</li>
+</ol>
+<ol start="3">
+<li><p>查看Linux的版本</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">cat /etc/redhat-release</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>系统时间</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">date</span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+</li>
+</ol>
+<ol start="5">
+<li><p>同步与电脑的时间</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">rdate -s time.nist.gov</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>查看盘符使用状况</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">df -lh</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>关机</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">Shutdown –h now 立刻关机</span><br><span class="line">    </span><br><span class="line">Shutdown –r now 立刻重启</span><br><span class="line">    </span><br><span class="line">logout 			注销</span><br><span class="line">    </span><br><span class="line">reboot          立刻重启</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>切换目录</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">cd dirname 进入制定目录与window同用法</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>查看</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">ls  查看当前目录下的文件</span><br><span class="line">参数：</span><br><span class="line">-a  全部的文件，连同隐藏档( 开头为 . 的文件) 一起列出来</span><br><span class="line">-d  仅列出目录本身，而不是列出目录内的文件数据</span><br><span class="line">-l  长数据串列出，包含文件的属性与权限等等数据</span><br><span class="line"></span><br><span class="line">ll  详细查看当前目录下的文件</span><br><span class="line">pwd  查看用户当前所在目录</span><br><span class="line">cat  fileName 查看文件内容(cat /etc/redhat -release查看Linux版本)</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>创建及删除文件夹</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">mkdir dirname 创建文件夹</span><br><span class="line">rmdir 		  删除一个空目录</span><br><span class="line">    </span><br><span class="line">rm filename/dirname 删除文件/文件夹</span><br><span class="line">参数：</span><br><span class="line">-i 删除前逐一询问确认。</span><br><span class="line">-f 即使原档案属性设为唯读，亦直接删除，无需逐一确认。</span><br><span class="line">-r 将目录及以下之档案亦逐一删除,递归所有的子目录,逐一询问</span><br><span class="line"></span><br><span class="line">rm -rf filename 直接删除(强制)</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>复制</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">cp /test1/file1 /test3/file2  将/test1目录下的file1复制到/test3目录，并将文件名改为file2</span><br><span class="line">参数:</span><br><span class="line">-r  强制（目录不存在创建目录）</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>重命名，移动（剪切）</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">mv /test1/file1 /test3/file2  </span><br><span class="line">将/test1目录下的file1移动（剪切）到/test3 目录，并将文件名改为file2</span><br><span class="line"></span><br><span class="line">mv A B   将目录A重命名为B</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>查找文件</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang"></div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight"><table><tbody><tr><td class="code"><pre><span class="line">find   / -name httpd.conf　　#在根目录下查找文件httpd.conf，表示在整个硬盘查找</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>创建文本及文本相关的命令 : VIM</p>
+<p>创建文件需要用到vi或vim编辑器。vi编辑器是Linux和Unix上最基本的文本编辑器</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">vim filename    创建文本</span><br><span class="line">i  				在打开文本后，输入i文本进入编辑状态</span><br><span class="line">esc 			退出编辑</span><br><span class="line">:q!  			退出编辑器（“：”进入输入命令模式，q!命令表示退出）</span><br><span class="line">:wq!  			退出并保存</span><br><span class="line">:w              保存</span><br><span class="line">:w!  			强制保存</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>压缩和解压</p>
+<p>Linux常用的压缩、解压命令有：tar、gz、zip等等</p>
+<h3 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h3><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">tar zxvf filename 			解压</span><br><span class="line">tar czvf filename dirname   压缩</span><br><span class="line">参数：</span><br><span class="line">-x：		解压</span><br><span class="line">-t：		查看内容</span><br><span class="line">    </span><br><span class="line">下面的参数是根据需要在压缩或解压档案时可选的。</span><br><span class="line">    </span><br><span class="line">-z：		有gzip属性的</span><br><span class="line">-j：		有bz2属性的</span><br><span class="line">-Z：		有compress属性的</span><br><span class="line">-v：		显示所有过程</span><br><span class="line">-O：		将文件解开到标准输出</span><br><span class="line">    </span><br><span class="line">下面的参数-f是必须的</span><br><span class="line">    </span><br><span class="line">-f: 	使用档案名字，切记，这个参数是最后一个参数，后面只能接档案名</span><br></pre></td></tr></tbody></table></figure></div>
+
+<h3 id="gz"><a href="#gz" class="headerlink" title="gz"></a>gz</h3><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">gunzip filename.gz  解压<span class="number">1</span></span><br><span class="line">gzip -d filename.gz 解压<span class="number">2</span></span><br><span class="line">gzip filename 		压缩</span><br></pre></td></tr></tbody></table></figure></div>
+
+<h3 id="zip"><a href="#zip" class="headerlink" title="zip"></a>zip</h3><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">unzip filename.zip 			解压</span><br><span class="line">zip filename.zip dirname 	压缩</span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+
+
+</li>
+</ol>
+<ol start="16">
+<li><p>查看IP</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">ip addr 	查看IP</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>防火墙</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">service iptables status    查看防火墙状态</span><br><span class="line">service iptables start     开启防火墙</span><br><span class="line">service iptables stop      关闭防火墙</span><br><span class="line">service iptables restart   重启防火墙</span><br></pre></td></tr></tbody></table></figure></div>
+
+<p><code>CentOS 7以上的如下</code></p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">firewall-cmd --state   				  查看防火墙状态</span><br><span class="line">systemctl stop firewalld-service  	  关闭防火墙</span><br><span class="line">systemctl disable firewalld.service   禁止firewall开机启动</span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+</li>
+</ol>
+<ol start="18">
+<li><p>服务</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">service servicename start/stop/restart   服务启/停/重启</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>进程</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">top 			   显示进程信息,并实时更新</span><br><span class="line">ps -ef|grep java   显示出所有的java进程</span><br><span class="line">kill xxx  		   杀死进程xxx表示pid  </span><br><span class="line">常用例子：kill -<span class="number">9</span> <span class="number">324</span> 杀死pid为<span class="number">324</span>的进程（-<span class="number">9</span>表示强行）</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>权限及用户</p>
+<h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">useradd -d /usr/zhangsan zhangsan</span><br><span class="line">参数：</span><br><span class="line">-c comment 指定一段注释性描述。</span><br><span class="line">-d 目录 指定用户主目录，如果此目录不存在，则同时使用-m选项，可以创建主目录。</span><br><span class="line">-g 用户组 指定用户所属的用户组。</span><br><span class="line">-G 用户组，用户组 指定用户所属的附加组。</span><br><span class="line">-s Shell文件 指定用户的登录Shell。</span><br><span class="line">-u 用户号 指定用户的用户号，如果同时有-o选项，则可以重复使用其他用户的标识号。</span><br><span class="line">    </span><br><span class="line">passwd zhangsan  给制定用户设置密码</span><br></pre></td></tr></tbody></table></figure></div>
+
+<h3 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h3><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">userdel -r zhangsan</span><br><span class="line">参数：</span><br><span class="line">-r  将用户的主目录一起删除</span><br><span class="line">-f  强行删除用户</span><br><span class="line">    </span><br><span class="line">groupdel groupname 删除用户组</span><br></pre></td></tr></tbody></table></figure></div>
+
+<h3 id="修改用户"><a href="#修改用户" class="headerlink" title="修改用户"></a>修改用户</h3><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">usermod -g 修改用户所属群组</span><br><span class="line">参数：</span><br><span class="line">-c<备注> 　   修改用户帐号的备注文字。</span><br><span class="line">-d登入目录> 　 修改用户登入时的目录。</span><br><span class="line">-e<有效期限> 　修改帐号的有效期限。</span><br><span class="line">-f<缓冲天数> 　修改在密码过期后多少天即关闭该帐号。</span><br><span class="line">-g<群组> 　   修改用户所属的群组。</span><br><span class="line">-G<群组> 　   修改用户所属的附加群组。</span><br><span class="line">-l<帐号名称>  修改用户帐号名称。</span><br><span class="line">-L 　		锁定用户密码，使密码无效。</span><br><span class="line">-s<shell> 　	修改用户登入后所使用的shell。</shell></span><br><span class="line">-u<uid> 　	修改用户ID。</uid></span><br><span class="line">-U 　		解除密码锁定</span><br></pre></td></tr></tbody></table></figure></div>
+
+<h3 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h3><p>权限是操作系统用来限制资源访问的机制，权限一般分为读、写、执行。系统中每个文件都拥有特定的权限。</p>
+<p>目录必须拥有 “x” 权限才可查看其内容。很多时候，执行权限 “x” 对于目录而言也叫<strong>浏览权限</strong>。仅有 “r” 权限是无法查看目录内容的（因为连访问都做不到）</p>
+<h3 id="修改文件权限"><a href="#修改文件权限" class="headerlink" title="修改文件权限"></a>修改文件权限</h3></li>
+</ol>
+<pre><code><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">chmod [参数] filename</span><br><span class="line"></span><br><span class="line">参数：</span><br><span class="line">u、g、o     分别代表用户、组、其他</span><br><span class="line">a           代表ugo</span><br><span class="line">+、-        代表加入或删除对应权限</span><br><span class="line">r、w、x     代表三种权限</span><br><span class="line">-R          递归地修改</span><br><span class="line"></span><br><span class="line">示例:</span><br><span class="line"></span><br><span class="line">chmod u +rw test.txt    给文件的所属用户添加rw权限</span><br><span class="line">chmod g -x test.txt    给文件的所属组移除x权限</span><br><span class="line">chmod go +r test.txt    给文件的所属组和其他用户添加r权限</span><br><span class="line">chmod a -x test.txt    给文件的所属UGO三个模型均移除x权限</span><br></pre></td></tr></tbody></table></figure></div></code></pre><ol start="21">
+<li><p>九位权限</p>
+<p><a href="https://i.loli.net/2020/05/27/jzCD6gaXMq2pFhA.png" data-fancybox="group" data-caption="文件分析" class="fancybox"><img alt="文件分析" title="文件分析" data-src="https://i.loli.net/2020/05/27/jzCD6gaXMq2pFhA.png" src="/img/loading.gif" class="lazyload"></a></p>
+<p><a href="https://i.loli.net/2020/05/27/1Gt2eIgNz3iSYkL.png" data-fancybox="group" data-caption="九位权限分解" class="fancybox"><img alt="九位权限分解" title="九位权限分解" data-src="https://i.loli.net/2020/05/27/1Gt2eIgNz3iSYkL.png" src="/img/loading.gif" class="lazyload"></a></p>
+<p><a href="https://i.loli.net/2020/05/27/eGHk65pWCLx2DcI.png" data-fancybox="group" data-caption="文件分析" class="fancybox"><img alt="文件分析" title="文件分析" data-src="https://i.loli.net/2020/05/27/eGHk65pWCLx2DcI.png" src="/img/loading.gif" class="lazyload"></a></p>
+</li>
+</ol>
+<h2 id="4-Linux的一些软件安装（以jdk安装为例）"><a href="#4-Linux的一些软件安装（以jdk安装为例）" class="headerlink" title="4. Linux的一些软件安装（以jdk安装为例）"></a>4. Linux的一些软件安装（以jdk安装为例）</h2><ol>
+<li><p>解压下载好的压缩文件</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">tar xvf jdk-<span class="number">8</span>u121-linux-x64.tar.gz</span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>编辑环境变量，打开<code>/etc/profile</code>文件，将配置信息加入其文件中</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">export JAVA_HOME=/usr/local/java/jdk1<span class="number">.8</span><span class="number">.0_121</span>  </span><br><span class="line">export JRE_HOME=/usr/local/java/jdk1<span class="number">.8</span><span class="number">.0_121</span>/jre  </span><br><span class="line">export PATH=$PATH:/usr/local/java/jdk1<span class="number">.8</span><span class="number">.0_121</span>/bin  </span><br><span class="line">export CLASSPATH=/usr/local/java/jdk1<span class="number">.8</span><span class="number">.0_121</span>/lib</span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+</li>
+</ol>
+<ol start="3">
+<li><p>输入<code>source /etc/profile</code> 让文件生效</p>
+</li>
+<li><p>分别输入 <code>java  -version</code> 和 <code>javac</code> 进行测试</p>
+</li>
+</ol>
+<hr>
+<p><strong>有想法的小伙伴可以进入<a href="https://github.com/ClodSleep666/" target="_blank" rel="noopener">我的Github</a>查看源码</strong></p>
+<p>** 在哪里跌倒，就在哪里趴下，休息一会儿你会发现新大陆的哦~ **</p>
+</body></html>]]></content>
+      <categories>
+        <category>文章</category>
+        <category>技巧</category>
+      </categories>
+      <tags>
+        <tag>article</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker的一些简单总结</title>
+    <url>/2020/05/27/1010913/</url>
+    <content><![CDATA[<html><head></head><body><h1 id="Docker的一些简单总结"><a href="#Docker的一些简单总结" class="headerlink" title="Docker的一些简单总结"></a>Docker的一些简单总结</h1><h2 id="1-Docker的简介"><a href="#1-Docker的简介" class="headerlink" title="1. Docker的简介"></a>1. Docker的简介</h2><ol>
+<li><p>Docker 使用客户端-服务器 (C/S) 架构模式 使用远程API来管理和创建Docker容器。Docker 容器（Container）通过 Docker 镜像（Image）来创建，二者之间的关系类似于面向对象编程中的对象与类 </p>
+</li>
+<li><p>Docker 是一个开源的应用容器引擎</p>
+</li>
+<li><p>Docker的组成，主要包括三给概念：</p>
+<ul>
+<li><strong>仓库（Repository）</strong></li>
+<li><strong>镜像（Image）</strong><ol>
+<li><strong>它启动很快</strong> 。这也意味着，在它执行的过程中几乎没有额外的开销。 </li>
+<li>虚拟机占用物理空间大，容器占的内存很小</li>
+<li>一键（单命令）部署。</li>
+</ol>
+</li>
+<li><strong>容器(Container）</strong></li>
+</ul>
+</li>
+<li><p>容器和虚拟机的比较：</p>
+<ul>
+<li>Docker容器很快，启动和停止可以在秒级实现，这相比传统的虚拟机方式要快得多。 </li>
+<li>Docker容器对系统资源需求很少，一台主机上可以同时运行数千个Docker容器。 </li>
+<li>Docker通过类似Git的操作来方便用户获取、分发和更新应用镜像，指令简明，学习成本较低。 </li>
+<li>Docker通过Dockerfile配置文件来支持灵活的自动化创建和部署机制，提高工作效率。</li>
+</ul>
+<p><a href="https://i.loli.net/2020/06/01/neoT1ZrKXivLACD.png" data-fancybox="group" data-caption="Docker架构" class="fancybox"><img alt="Docker架构" title="Docker架构" data-src="https://i.loli.net/2020/06/01/neoT1ZrKXivLACD.png" src="/img/loading.gif" class="lazyload"></a></p>
+</li>
+</ol>
+<h2 id="2-Docker的安装"><a href="#2-Docker的安装" class="headerlink" title="2. Docker的安装"></a>2. Docker的安装</h2><p><code>注意： Docker 要求 Ubuntu 系统的内核版本高于 3.10 ,通过 uname -r 命令查看你当前的内核版本</code></p>
+<h3 id="1-安装Docker"><a href="#1-安装Docker" class="headerlink" title="1. 安装Docker"></a>1. 安装Docker</h3>   <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">yum -y install docker</span><br></pre></td></tr></tbody></table></figure></div>
+
+<h3 id="2-验证Docker是否安装成功"><a href="#2-验证Docker是否安装成功" class="headerlink" title="2. 验证Docker是否安装成功"></a>2. 验证Docker是否安装成功</h3>   <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">使用docker version命令查看,有client和service两部分表示docker安装启动都成功了</span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+<h3 id="3-启动Docker服务"><a href="#3-启动Docker服务" class="headerlink" title="3. 启动Docker服务"></a>3. 启动Docker服务</h3>   <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">service docker start   	 启动Docker</span><br><span class="line">systemctl enable docker  设置开机启动</span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+<h3 id="4-查看Docker的运行状态"><a href="#4-查看Docker的运行状态" class="headerlink" title="4. 查看Docker的运行状态"></a>4. 查看Docker的运行状态</h3>   <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">ps -ef|grep docker</span><br><span class="line"><span class="comment">// 或</span></span><br><span class="line">netstat -lnpe|grep docker</span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+<h3 id="5-配置容器镜像加速器"><a href="#5-配置容器镜像加速器" class="headerlink" title="5. 配置容器镜像加速器"></a>5. 配置容器镜像加速器</h3><p>   <code>每个用户的镜像加速器都不一样，通过阿里云的容器镜像服务的镜像加速器可以找到</code></p>
+   <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">通过修改daemon配置文件/etc/docker/daemon.json来使用加速器</span><br><span class="line">mkdir -p /etc/docker</span><br><span class="line">    </span><br><span class="line">sudo tee /etc/docker/daemon.json <<-<span class="string">'EOF'</span></span><br><span class="line">{</span><br><span class="line">  <span class="string">"registry-mirrors"</span>: [<span class="string">"https://3gecvtyg.mirror.aliyuncs.com"</span>]</span><br><span class="line">}</span><br><span class="line">EOF</span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></tbody></table></figure></div>
+
+<h2 id="3-Docker的一些常用命令"><a href="#3-Docker的一些常用命令" class="headerlink" title="3. Docker的一些常用命令"></a>3. Docker的一些常用命令</h2><h3 id="1-查看镜像"><a href="#1-查看镜像" class="headerlink" title="1. 查看镜像"></a>1. 查看镜像</h3>   <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">docker images   		  列出本地images  </span><br><span class="line">docker images --no-trunc  显示镜像完整信息</span><br><span class="line">docker ps           查看正在运行的容器</span><br><span class="line">docker ps -a  		查看所有容器</span><br><span class="line">docker ps -l  		查看最近一次运行的容器</span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+<h3 id="2-搜索镜像"><a href="#2-搜索镜像" class="headerlink" title="2. 搜索镜像"></a>2. 搜索镜像</h3>   <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">docker search mysql  	    搜索仓库MySQL镜像</span><br><span class="line">docker search --filter=stars=<span class="number">600</span> mysql  只显示 starts>=<span class="number">600</span> 的镜像 </span><br><span class="line">docker search --no-trunc mysql          显示镜像完整 DESCRIPTION 描述</span><br><span class="line">docker pull mysql 			下载mysql官方最新镜像</span><br><span class="line">docker pull -a mysql        下载仓库所有mysql镜像</span><br><span class="line">docker pull bitnami/mysql   下载私人仓库镜像</span><br><span class="line">docker rmi mysql            单个镜像删除,(可以通过镜像名或id删除)</span><br><span class="line">docker rmi -f mysql         强制删除(针对基于镜像有运行的容器进程)</span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+<h3 id="3-容器启动"><a href="#3-容器启动" class="headerlink" title="3. 容器启动"></a>3. 容器启动</h3>   <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">docker run centos echo <span class="string">'name'</span>	一次性容器：只运行一次</span><br><span class="line">docker run --name NAME -i -t  [IMAGE]  /bin/bash 交互式容器：命令结束(exit)后即停止 </span><br><span class="line">docker restart  [-i\]  NAME|ID	重启容器</span><br><span class="line">docker stop  ID  	容器停止</span><br><span class="line">docker  rm   ID  	容器删除</span><br><span class="line">docker rm -f ID  强制删除容器</span><br><span class="line">sudo docker rm $(sudo docker ps -a -q)  删除所有未运行的容器（已经运行的删除不了）</span><br><span class="line">    </span><br><span class="line">创建守护式容器：无需会话，无需终端，可以长期运行；非常适合运行应用程序和服务</span><br><span class="line">docker run -p <span class="number">8080</span>:<span class="number">80</span> -i -t IMAGE</span><br><span class="line">-- run -P -p  端口映射：处理容器内端口和宿主机端口的映射</span><br><span class="line">    </span><br><span class="line">Ctrl +P  Ctrl+Q	 命令退出；不需要exit退出</span><br><span class="line">    </span><br><span class="line">docker top  容器名   			查看某一个容器内的进程情况</span><br><span class="line">docker logs -f <span class="number">0257f</span>0154b97   查看容器日志</span><br><span class="line"></span><br><span class="line">进入容器的方法：</span><br><span class="line">docker run -it ID /bin/bash</span><br><span class="line">docker exec -it ID /bin/bash  </span><br><span class="line">docker attach 容器名或者容器ID</span><br></pre></td></tr></tbody></table></figure></div>
+
+<pre><code>什么是守护式容器？ </code></pre><ul>
+<li><p>能够长期运行 </p>
+</li>
+<li><p>没有交互式会话 </p>
+</li>
+<li><p>适合运行应用程序和服务 </p>
+</li>
+</ul>
+<p>​     </p>
+<h3 id="4-连接MySql"><a href="#4-连接MySql" class="headerlink" title="4. 连接MySql"></a>4. 连接MySql</h3>   <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">进入docker本地连接mysql客户端</span><br><span class="line">sudo docker exec -it mysql bash</span><br><span class="line">mysql -u username -p password</span><br><span class="line"></span><br><span class="line">如果连接不上，可能</span><br><span class="line"><span class="number">1</span>.关闭防火墙</span><br><span class="line">systemctl stop firewalld   关闭防火墙</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="number">2</span>.重启MySQL</span><br><span class="line">docker restart ID 重启容器</span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+<h3 id="5-Docker挂载"><a href="#5-Docker挂载" class="headerlink" title="5. Docker挂载"></a>5. Docker挂载</h3>   <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">docker cp runoob ID:/www/   将主机runoob目录拷贝到容器ID的/www目录下</span><br><span class="line">docker cp  ID:/www /tmp/    将容器ID的/www目录拷贝到主机的/tmp目录中</span><br><span class="line">docker cp /www/runoob ID:/www    将主机/www/runoob目录拷贝到容器ID中，目录重命名为www</span><br><span class="line">    </span><br><span class="line">有时候 cp 命令比较麻烦！！！</span><br><span class="line">我们通过容器目录挂载，能够轻松实现代码上传，配置文件修改，日志同步等需求</span><br><span class="line">    </span><br><span class="line">docker run -it -v /宿主机目录:/容器目录 [-v /宿主机目录<span class="number">2</span>:/容器目录<span class="number">2</span>] 镜像ID /bin/bash</span><br><span class="line">    </span><br><span class="line">例如：</span><br><span class="line">    </span><br><span class="line">docker run -it  -v /home/hData:/home/cData -v /home/hData1:/home/cData1 ID /bin/bash</span><br><span class="line"></span><br><span class="line">注意：</span><br><span class="line">docker run -it -v /宿主机目录:/容器目录:ro   镜像名</span><br><span class="line">ro表示read only</span><br></pre></td></tr></tbody></table></figure></div>
+
+<p>   例：Tomcat的挂载</p>
+<ol>
+<li><p>运行Tomcat </p>
+<p>docker run -d –name ‘tom1’ -p 7899:8080 [IMG NAME]</p>
+</li>
+<li><p>宿主机在home目录下新建tomcat目录，复制容器里的conf和webapps到宿主机</p>
+<ul>
+<li><p>docker cp  容器ID:/usr/local/tomcat/webapps /home/tomcat</p>
+</li>
+<li><p>docker cp 容器ID:/usr/local/tomcat/conf /home/tomcat</p>
+</li>
+</ul>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">docker run -d --name <span class="string">'tom2'</span> -p <span class="number">80</span>:<span class="number">8080</span> </span><br><span class="line">-v /root/llj/tomcat/conf:/usr/local/tomcat/conf  </span><br><span class="line">-v /root/llj/tomcat/webapps:/usr/local/tomcat/webapps  </span><br><span class="line">-v /root/llj/tomcat/logs:/usr/local/tomcat/logs </span><br><span class="line">tomcat</span><br><span class="line">    </span><br><span class="line">如果运行不起来则用这个：</span><br><span class="line">docker run -d -p <span class="number">80</span>:<span class="number">8080</span> </span><br><span class="line">-v /root/llj/tomcat/webapps:/usr/local/tomcat/webapps  </span><br><span class="line">tomcat</span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+</li>
+</ol>
+<h2 id="4-DockerFile"><a href="#4-DockerFile" class="headerlink" title="4.DockerFile"></a>4.DockerFile</h2><h3 id="1-DockerFile-简介："><a href="#1-DockerFile-简介：" class="headerlink" title="1. DockerFile 简介："></a>1. DockerFile 简介：</h3><pre><code>Dockerfile是由一系列命令和参数构成的脚本，这些命令应用于基础镜像并最终创建一个新的镜像。它们简化了从头到尾的流程并极大的简化了部署工作。Dockerfile从FROM命令开始，紧接着跟随者各种方法，命令和参数。其产出为一个新的可以用于创建容器的镜像。 </code></pre><p><a href="https://i.loli.net/2020/06/01/7X4kHFeISdPJiNQ.png" data-fancybox="group" data-caption="指令" class="fancybox"><img alt="指令" title="指令" data-src="https://i.loli.net/2020/06/01/7X4kHFeISdPJiNQ.png" src="/img/loading.gif" class="lazyload"></a></p>
+<h3 id="2-Docker-构建自己的image-镜像文件"><a href="#2-Docker-构建自己的image-镜像文件" class="headerlink" title="2. Docker 构建自己的image 镜像文件"></a>2. Docker 构建自己的image 镜像文件</h3><h4 id="1-在本地工程中运行生成一个springboot的可运行的jar"><a href="#1-在本地工程中运行生成一个springboot的可运行的jar" class="headerlink" title="1.  在本地工程中运行生成一个springboot的可运行的jar"></a>1.  在本地工程中运行生成一个springboot的可运行的jar</h4><ol>
+<li><p>将项目clean一下，在通过install打成jar包</p>
+</li>
+<li><p>在本地CMD测试一下是否可访问</p>
+<p> doc下启动服务命令： </p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">java -jar \路径\firstSpringboot-<span class="number">0.0</span><span class="number">.1</span>-SNAPSHOT.jar</span><br></pre></td></tr></tbody></table></figure></div>
+
+</li>
+</ol>
+<h4 id="2-在-usr-local下创建一个dockerapp的目录"><a href="#2-在-usr-local下创建一个dockerapp的目录" class="headerlink" title="2.  在/usr/local下创建一个dockerapp的目录"></a>2.  在/usr/local下创建一个dockerapp的目录</h4><p>将本地生成的jar文件上传到docker服务器上的这个目录。/usr/local/dockerapp 。在当前的目录下新建一个<code>DockerFile</code>的文件</p>
+<p>文件内容如下：</p>
+<p><code>意思是使用的是jdk8，将springbootdemo.jar文件添加到docker容器下，并且名字为firstspringbootdemo.jar，对外声明启动端口是8082，跟我们的application.yml配置文件一样。最后就是执行命令生成</code></p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line">###java8环境镜像</span><br><span class="line">FROM java:<span class="number">8</span></span><br><span class="line">    </span><br><span class="line">###复制文件到容器, springbootdemo.jar后面要有给空格,要不然会报</span><br><span class="line">ADD springbootdemo.jar /firstspringbootdemo.jar</span><br><span class="line">    </span><br><span class="line">###声明启动端口号</span><br><span class="line">EXPOSE <span class="number">8082</span></span><br><span class="line">    </span><br><span class="line">###配置容器启动后执行的命令</span><br><span class="line">ENTRYPOINT [<span class="string">"java"</span>,<span class="string">"-jar"</span>,<span class="string">"/firstspringbootdemo.jar"</span>]</span><br></pre></td></tr></tbody></table></figure></div>
+
+<h4 id="3-用docker-build-t-构建镜像文件"><a href="#3-用docker-build-t-构建镜像文件" class="headerlink" title="3.  用docker build -t 构建镜像文件"></a>3.  用docker build -t 构建镜像文件</h4><p>文件名称 . 这个命令构建镜像文件image ，后面那个<code>.</code>表示当前目录。 </p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">docker build -t firstspringbootdemo .</span><br></pre></td></tr></tbody></table></figure></div>
+
+<p>最后显示successfully,则构建成功</p>
+<h4 id="4-查看镜像文件是否生成"><a href="#4-查看镜像文件是否生成" class="headerlink" title="4.  查看镜像文件是否生成"></a>4.  查看镜像文件是否生成</h4><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></tbody></table></figure></div>
+
+<p><a href="https://i.loli.net/2020/06/01/fcxM6SAb1gJWEv8.png" data-fancybox="group" data-caption="查看镜像.PNG" class="fancybox"><img alt="查看镜像.PNG" title="查看镜像.PNG" data-src="https://i.loli.net/2020/06/01/fcxM6SAb1gJWEv8.png" src="/img/loading.gif" class="lazyload"></a></p>
+<h4 id="5-启动应用"><a href="#5-启动应用" class="headerlink" title="5. 启动应用"></a>5. 启动应用</h4><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">docker run -p <span class="number">8082</span>:<span class="number">8082</span> firstspringbootdemo </span><br><span class="line">docker run -d -p <span class="number">8082</span>:<span class="number">8082</span> firstspringbootdemo  设置服务在后台运行</span><br></pre></td></tr></tbody></table></figure></div>
+
+<p><a href="https://i.loli.net/2020/06/01/HEhQ4srCpu1DXIP.png" data-fancybox="group" data-caption="启动完成.PNG" class="fancybox"><img alt="启动完成.PNG" title="启动完成.PNG" data-src="https://i.loli.net/2020/06/01/HEhQ4srCpu1DXIP.png" src="/img/loading.gif" class="lazyload"></a></p>
+<h2 id="5-Docker-Compose与Harbor（搭建私服）"><a href="#5-Docker-Compose与Harbor（搭建私服）" class="headerlink" title="5. Docker Compose与Harbor（搭建私服）"></a>5. Docker Compose与Harbor（搭建私服）</h2><h4 id="1-Docker-Compose-简介"><a href="#1-Docker-Compose-简介" class="headerlink" title="1. Docker Compose 简介"></a>1. Docker Compose 简介</h4><p>​      <strong>使用 Docker Compose 可以轻松、高效的管理容器，它是一个用于定义和运行多容器 Docker 的应用程序工具</strong></p>
+<h4 id="2-Docker-Compose-安装"><a href="#2-Docker-Compose-安装" class="headerlink" title="2. Docker Compose 安装"></a>2. Docker Compose 安装</h4><p>安装的是1.8版本的</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">curl -L https:<span class="comment">//github.com/docker/compose/releases/download/1.8.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose</span></span><br></pre></td></tr></tbody></table></figure></div>
+
+<p>查看是否安装成功</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">docker-compose -v</span><br></pre></td></tr></tbody></table></figure></div>
+
+<p><a href="https://i.loli.net/2020/06/01/viOkCN5ZtqdUaeM.png" data-fancybox="group" data-caption="创建成功.PNG" class="fancybox"><img alt="创建成功.PNG" title="创建成功.PNG" data-src="https://i.loli.net/2020/06/01/viOkCN5ZtqdUaeM.png" src="/img/loading.gif" class="lazyload"></a></p>
+<h4 id="3-Harbor-的安装"><a href="#3-Harbor-的安装" class="headerlink" title="3.Harbor 的安装"></a>3.Harbor 的安装</h4><ol>
+<li><p><strong>下载tar包</strong></p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">wget -P /usr/local https:<span class="comment">//storage.googleapis.com/harbor-releases/release-1.7.0/harbor-online-installer-v1.7.1.tgz</span></span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p><strong>解压tar包</strong></p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">tar zxf /usr/local/harbor-online-installer-v1<span class="number">.7</span><span class="number">.1</span>.tgz -C /usr/local/</span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+</li>
+</ol>
+<ol start="3">
+<li><p><strong>预编译harbor (这个过程可能会需要十来分钟，因为要到外部获取各种必须的镜像)</strong> </p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">cd /usr/local/harbor</span><br><span class="line">./prepare</span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+</li>
+</ol>
+<ol start="4">
+<li><p><strong>执行安装</strong></p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">cd /usr/local/harbor</span><br><span class="line">./install.sh</span><br></pre></td></tr></tbody></table></figure></div>
+
+<p>直到看到[✔ —-Harbor has been installed and started successfully.—-]才说明harbor安装成功了</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">#停止harbor</span><br><span class="line">docker-compose -f docker-compose.yml down</span><br><span class="line"> </span><br><span class="line">#启动harbor</span><br><span class="line">docker-compose -f docker-compose.yml up -d</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p><strong>Harbor改配置</strong></p>
+<ul>
+<li>hostname写上你要访问的harbor的地址当主机名。</li>
+<li>harbor_admin_password是默认的harbor登录的密码</li>
+<li>database-password我猜是默认的harbor数据库密码，默认的是root123，建议改掉。</li>
+</ul>
+</li>
+<li><p>通过HTTP://ip地址：端口访问Harbor界面</p>
+</li>
+</ol>
+<h4 id="4-上传镜像"><a href="#4-上传镜像" class="headerlink" title="4. 上传镜像"></a>4. 上传镜像</h4><ol>
+<li><p>修改文件 <code>/etc/docker/daemon.json</code></p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="string">"registry-mirrors"</span>: [<span class="string">"https://3gecvtyg.mirror.aliyuncs.com"</span>],</span><br><span class="line">  <span class="string">"insecure-registries"</span>: [</span><br><span class="line">    <span class="string">"192.168.0.29"</span></span><br><span class="line">  ]</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>然后重启docker</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">systemctl restart docker</span><br><span class="line"></span><br><span class="line">cd /usr/local/harbor</span><br><span class="line">docker-compose up -d</span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+</li>
+</ol>
+<ol start="3">
+<li><p>将要上传的镜像打成tar</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function">docker tag <span class="title">nginx</span><span class="params">(镜像名字)</span>  192.168.0.29/topcheer/<span class="title">nginx</span><span class="params">(放到那个目录)</span></span></span><br></pre></td></tr></tbody></table></figure></div>
+
+
+
+</li>
+</ol>
+<ol start="4">
+<li><p>登录私有库上传</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">docker login -u root -p root</span><br><span class="line">docker push <span class="number">192.168</span><span class="number">.0</span><span class="number">.29</span>/test   推送到私有库的目录</span><br></pre></td></tr></tbody></table></figure></div>
+
+<p><a href="https://i.loli.net/2020/06/01/B9ITeM1nY3rascX.png" data-fancybox="group" data-caption="推送镜像.PNG" class="fancybox"><img alt="推送镜像.PNG" title="推送镜像.PNG" data-src="https://i.loli.net/2020/06/01/B9ITeM1nY3rascX.png" src="/img/loading.gif" class="lazyload"></a></p>
+</li>
+</ol>
+<hr>
+<p><strong>有想法的小伙伴可以进入<a href="https://github.com/ClodSleep666/" target="_blank" rel="noopener">我的Github</a>查看源码</strong></p>
+<p>** 在哪里跌倒，就在哪里趴下，休息一会儿你会发现新大陆的哦~ *</p>
+</body></html>]]></content>
+      <categories>
+        <category>文章</category>
+        <category>总结</category>
+      </categories>
+      <tags>
+        <tag>article</tag>
+        <tag>summary</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hibernate 的一些简单总结及SSH整合</title>
     <url>/2020/04/27/1010711/</url>
     <content><![CDATA[<html><head></head><body><h2 id="Hibernate-的一些简单总结及SSH整合"><a href="#Hibernate-的一些简单总结及SSH整合" class="headerlink" title="Hibernate 的一些简单总结及SSH整合"></a>Hibernate 的一些简单总结及SSH整合</h2><ol>
@@ -188,9 +563,11 @@ SessionFactory factory = cfg.buildSessionFactory(sr);
 </body></html>]]></content>
       <categories>
         <category>文章</category>
+        <category>总结</category>
       </categories>
       <tags>
         <tag>article</tag>
+        <tag>summary</tag>
       </tags>
   </entry>
   <entry>
@@ -224,6 +601,7 @@ SessionFactory factory = cfg.buildSessionFactory(sr);
 </body></html>]]></content>
       <categories>
         <category>文章</category>
+        <category>技巧</category>
       </categories>
       <tags>
         <tag>article</tag>
